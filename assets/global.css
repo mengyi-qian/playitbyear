@@ -1,10 +1,17 @@
 * {
   font-family: 'Inter', sans-serif;
   text-rendering: optimizeLegibility;
+  letter-spacing:2px;
+  line-height: 1.5em;
+}
+
+*::selection {
+  background-color: rgba(256,256,256,0);
 }
 
 h1 {
   margin: 0;
+  width: 80vw;
   position: fixed;
   text-align: center;
   left: 50vw;
@@ -17,10 +24,17 @@ h1 u {
   cursor: pointer;
 }
 
-.playitbyear {
+.show {
+  display: block !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.title {
   font-weight: 600;
   font-size: 100pt;
-  /* animation: fadein 2s ease-in-out 1 forwards; */
 }
 
 .fadein {
@@ -28,9 +42,8 @@ h1 u {
 }
 
 .about {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 30pt;
-  line-height: 1.5em;
   width: 80vw;
 }
 
@@ -46,44 +59,14 @@ h1 u {
   }
 }
 
-#livestream-scroll {
-  margin: 0;
-  top: 0;
-  left: 0;
-  height: calc( 300vh - 100px );
-  pointer-events: none;
-}
-
-#livestream-container {
-  background-color: silver;
-  height: calc( 100vh - 100px );
-  width: calc( 100vw - 160px );
-  margin-left: 80px;
-  margin-right: 80px;
-  margin-top: 100vh;
-  margin-bottom: 100vh;
-  border-radius: 50px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url(webcamgallery.jpg);
-  background-position: center;
-  background-size: cover;
-  animation: scrollup .5s ease-in 2s 1 forwards;
-  filter: drop-shadow(0px 0px 8px #808080);
-}
-
-@keyframes scrollup {
-  from {transform: translateY(0);}
-  to {transform: translateY(-50px);}
-}
-
 .button {
   position: fixed;
   left: 0px;
-  font-size: 24pt;
-  /* color: white; */
+  font-size: 18pt;
+  font-weight: 600;
   cursor: pointer;
+  /* color: white; */
+  display: none;
 }
 
 @keyframes positionX {
@@ -139,10 +122,33 @@ h1 u {
 
 @-webkit-keyframes glow {
   from {
-    text-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000, 0 0 15px #FF0000, 0 0 20px #FF0000, 0 0 25px #FF0000;
+    text-shadow: 0 0 5px #008ce7, 0 0 10px #008ce7, 0 0 15px #008ce7, 0 0 20px #008ce7, 0 0 25px #008ce7, 0 0 30px #008ce7;
   }
 
   to {
-    text-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000, 0 0 15px #FF0000;
+    text-shadow: 0 0 5px #008ce7, 0 0 10px #008ce7, 0 0 15px #008ce7;
   }
+}
+
+#mask {
+  position: fixed;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  box-shadow: inset 0 0 0 0 #008ce7;
+  /* transition: box-shadow 3s ease-in-out; */
+}
+.mask-shadow {
+  box-shadow: inset 0 0 0 0 #008ce7;
+}
+
+.mask-animation {
+  animation: inset 60s linear 1 forwards;
+}
+
+@keyframes inset {
+  0% {box-shadow: inset 0 0 0px 0px #008ce7;}
+  100% {box-shadow: inset 0 0 50vh 50vh #008ce7;}
 }

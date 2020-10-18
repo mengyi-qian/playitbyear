@@ -4,27 +4,13 @@
     <meta charset="utf-8">
     <title>Play It By Ear</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/global.css">
-    <link rel="stylesheet" href="assets/livestream.css">
-    <link rel="stylesheet" href="assets/statements.css">
+    <link rel="stylesheet" href="../assets/global.css">
+    <link rel="stylesheet" href="../assets/statements.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      window.onbeforeunload = function () {
-        window.scrollTo(0, 0);
-      }
-    </script>
   </head>
   <body>
-    <h1 class="title fadein">play it by ear</h1>
-
-
-    <div id="livestream-scroll">
-      <div id="livestream-container"></div>
-    </div>
-
-    </div>
-    <div class="statements" id="statement-left">
-      <p class="statement" style="padding-top: 100px;">
+    <div class="statement-container" id="statement-left">
+      <p class="statement" style="padding-top: 20px;">
         This exhibition joins images with sounds, introducing architectural and technological elements which facilitate, reproduce, and collage conversations across the spatial and temporal distances which are a part of student life this semester. It aims to create a layered space for broadcasting and listening, among members of the YSoA community and beyond, about precedent and originality, agency and contingency.
       </p>
       <p class="statement">
@@ -35,8 +21,8 @@
       </p>
     </div>
 
-    <div class="statements" id="statement-right">
-      <p class="statement" style="padding-top: 300px;">
+    <div class="statement-container" id="statement-right">
+      <p class="statement" style="padding-top: 200px;">
         [Mixtape is the title of the forthcoming eighth issue of Paprika! Volume 6, edited by Sarah Kim and Brandon Brooks (M.Arch I ’22). Collage is the methodology they have proposed for the visual component of this exhibition.]      </p>
       <p class="statement">
         The black aesthetic isn’t about fixed hierarchies or material value, it’s about how you treat material. It’s what you do with it, how you bend it. How you shape it. How you deform it. What you juxtapose it with. How one takes a “high” material like gold, and turns it into some Dookie chain shit. That’s asserting our own value.
@@ -55,19 +41,10 @@
       </p>
     </div>
 
-
     <div class="button" id="echo">echo</div>
     <div class="button" id="message">message</div>
     <div class="button" id="statement">statement</div>
 
-    <div id="mask"></div>
-
-
-    <script type="text/javascript">
-      window.onrefresh = function () {
-        document.getElementById('livestream-container').style.transform = 'translateY(0)';
-      }
-    </script>
-    <script src="assets/script.js"></script>
+    <script src="../assets/script.js"></script>
   </body>
 </html>

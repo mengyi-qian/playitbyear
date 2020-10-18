@@ -3,13 +3,14 @@
   text-rendering: optimizeLegibility;
   letter-spacing:2px;
   line-height: 1.5em;
+  scroll-behavior: smooth;
 }
 
 *::selection {
   background-color: rgba(256,256,256,0);
 }
 
-h1 {
+#title, #about {
   margin: 0;
   width: 80vw;
   position: fixed;
@@ -20,8 +21,20 @@ h1 {
   cursor: default;
 }
 
-h1 u {
+#about u {
   cursor: pointer;
+}
+
+#title {
+  font-weight: 600;
+  font-size: 100pt;
+}
+
+#about {
+  font-weight: 500;
+  font-size: 30pt;
+  width: 80vw;
+  display: none;
 }
 
 .show {
@@ -32,19 +45,8 @@ h1 u {
   display: none !important;
 }
 
-.title {
-  font-weight: 600;
-  font-size: 100pt;
-}
-
 .fadein {
   animation: fadein 2s ease-in-out 1 forwards;
-}
-
-.about {
-  font-weight: 500;
-  font-size: 30pt;
-  width: 80vw;
 }
 
 @keyframes fadein {

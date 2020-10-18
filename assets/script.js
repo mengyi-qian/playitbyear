@@ -1,9 +1,11 @@
 $(document).ready(function(){
+  $(this).scrollTop(0);
 
   const livestream = document.getElementById('livestream-container');
   const buttons = document.querySelectorAll('.button');
   setTimeout(function(){
-    livestream.style.transform = 'translateY(-50px)';
+    // livestream.style.transform = 'translateY(-50px)';
+    window.scrollTo({top: 50, behavior: 'smooth'});
     console.log("ok");
     for ( let i = 0; i < buttons.length; i++ ) {
       buttons[i].style.display = 'block';
@@ -13,39 +15,32 @@ $(document).ready(function(){
   var timeout;
   document.onmousemove = function(){
     clearTimeout(timeout);
-    console.log("timeout");
+    // console.log("timeout");
     $('#mask').removeClass('mask-animation');
     timeout = setTimeout(function(){
       $('#mask').addClass('mask-animation');
     }, 10000);
   }
 
-  const h1 = document.querySelector('h1');
-  const title = `play it by ear`;
-  const about = `
-    <p>This livestream is recorded from our exhibition space.</p>
-    <p>You are welcome to make a <u>reservation</u> for visit, or go to our <u>echo</u> dock, or leave us a <u>message</u>.</p>
-  `
 
   var previousScroll = 0;
   $(window).scroll(function () {
     var currentScroll = $(this).scrollTop();
     if ( currentScroll > previousScroll ) {
       if ( currentScroll > (window.innerHeight - 50) ) {
-        // console.log(currentScroll);
-        h1.innerHTML = about;
-        h1.className = 'about';
-        $('h1').removeClass('fadein');
+        $('#title').removeClass('fadein');
+        $('#title').css('display','none');
+        $('#about').css('display','block');
       }
     } else {
-      if ( currentScroll < (window.innerHeight - 50) ) {
-        // console.log(currentScroll);
-        h1.innerHTML = title;
-        h1.className = 'title';
+        if ( currentScroll < (window.innerHeight - 50) ) {
+        $('#about').css('display','none');
+        $('#title').css('display','block');
       }
     }
     previousScroll = currentScroll;
   });
+
 
   // setInterval(function(){
   //   const button = document.getElementById('button');
@@ -88,9 +83,9 @@ $(document).ready(function(){
   });
 
   $('#statement').click(function(){
-    $('h1,#livestream-scroll').addClass('hide');
+    $('#title,#about,#livestream-scroll').addClass('hide');
     $('.statements').addClass('show');
-    console.log('ok');
+    console.log('statements');
   });
 
 

@@ -6,15 +6,17 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
   display: none;
-  transition: 1s ease-in-out;
+  transition-property: color, filter;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
 }
 
 #statement-left {
-  left: 200px;
+  left: 10vw;
 }
 
 #statement-right {
-  right: 200px;
+  right: 10vw;
 }
 
 #statement-left::-webkit-scrollbar,
@@ -29,9 +31,7 @@
   z-index: -1;
 }
 
-.statement {
+/* .statement {
   margin-left: 0;
   margin-right: 0;
-  font-weight: 500;
-  font-size: 20pt;
-}
+} */

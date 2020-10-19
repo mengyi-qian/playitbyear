@@ -1,17 +1,32 @@
 $(document).ready(function(){
+  // Reset the scroll to top when page refreshed
   $(this).scrollTop(0);
 
   const livestream = document.getElementById('livestream-container');
   const buttons = document.querySelectorAll('.button');
+
+  // Show the button and the livestream video in 2 seconds
   setTimeout(function(){
-    // livestream.style.transform = 'translateY(-50px)';
     window.scrollTo({top: 50, behavior: 'smooth'});
-    console.log("ok");
+    // console.log("ok");
     for ( let i = 0; i < buttons.length; i++ ) {
       buttons[i].style.display = 'block';
     }
   }, 2000);
 
+  for ( let i = 0; i < buttons.length; i++ ) {
+    // make the animation a random duration, from 45s to 50s, from 7s to 8s, from 3s to 4s,
+    buttons[i].style["animation-duration"] = ( 45 + Math.random() * 5 ) + 's, ' + '8s,' +
+                                             ( 3 + Math.random() ) + 's';
+
+    // start the animations at a random offset, from 0s to -25s, from 0s to -8s, from 0s to -4s,
+    buttons[i].style["animation-delay"] = ( -1 * Math.random() * 25 ) + 's, ' +
+                                          ( -1 * Math.random() * 8 ) + 's,' +
+                                          ( -1 * Math.random() * 4 ) + 's';
+  }
+
+  // When mouse not moving for over 20 seconds
+  // Site goes to sleep
   var timeout;
   document.onmousemove = function(){
     clearTimeout(timeout);
@@ -19,10 +34,11 @@ $(document).ready(function(){
     $('#mask').removeClass('mask-animation');
     timeout = setTimeout(function(){
       $('#mask').addClass('mask-animation');
-    }, 10000);
+    }, 20000);
   }
 
-
+  // When scrolling the livestream video up and down
+  // Replace the background text
   var previousScroll = 0;
   $(window).scroll(function () {
     var currentScroll = $(this).scrollTop();
@@ -30,7 +46,7 @@ $(document).ready(function(){
       if ( currentScroll > (window.innerHeight - 50) ) {
         $('#title').removeClass('fadein');
         $('#title').css('display','none');
-        $('#about').css('display','block');
+        $('#about').removeClass('hide').css('display','block');
       }
     } else {
         if ( currentScroll < (window.innerHeight - 50) ) {
@@ -40,7 +56,6 @@ $(document).ready(function(){
     }
     previousScroll = currentScroll;
   });
-
 
   // setInterval(function(){
   //   const button = document.getElementById('button');
@@ -53,7 +68,7 @@ $(document).ready(function(){
   //   button.style.top = `${positionY}px`;
   // }, 1);
 
-
+  // Hover focus of the statements
   $('#statement-right').addClass('blur');
 
   $('#statement-left').hover(
@@ -74,18 +89,37 @@ $(document).ready(function(){
     }
   );
 
-
-
+  // Click the button and stop the animation
   $('.button').click(function(){
     $('.button').css('animation-play-state','running,running,running');
     $(this).css("animation-play-state","paused,paused,running");
     $(this).css("pointer-events","none");
   });
 
+  // Show the statement page
   $('#statement').click(function(){
     $('#title,#about,#livestream-scroll').addClass('hide');
-    $('.statements').addClass('show');
+    $('.info').removeClass('hide').addClass('hide');
+    $('.statements,#close').css('display','block');
     console.log('statements');
+  });
+
+  // Show the info page
+  $('#info').click(function(){
+    $('#title,#about,#livestream-scroll').addClass('hide');
+    $('.statements').addClass('hide');
+    $('.info,#close').removeClass('hide').css('display','block');
+    console.log('info');
+  });
+
+  // Back to the homepage
+  $('#close').click(function(){
+    $('#title,#livestream-scroll').removeClass('hide').css('display','block');
+    $('.statements,.info,#close').addClass('hide');
+    $('.button').css('animation-play-state','running,running,running');
+    $('#title').addClass('fadein');
+    $('.button').css("pointer-events","auto");
+    console.log('homepage');
   });
 
 

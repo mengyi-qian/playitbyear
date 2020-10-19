@@ -55,7 +55,7 @@
 #statement {animation-name: positionX, positionYstatement, glow;}
 
 #echo:hover,#info:hover,#statement:hover {
-  animation-play-state: paused,paused,running;
+  animation-play-state: paused,paused,running !important;
 }
 
 #close {

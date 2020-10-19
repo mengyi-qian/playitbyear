@@ -91,16 +91,24 @@ $(document).ready(function(){
 
   // Click the button and stop the animation
   $('.button').click(function(){
-    $('.button').css('animation-play-state','running,running,running');
+    $('.button').css('animation-play-state','auto,auto,auto');
     $(this).css("animation-play-state","paused,paused,running");
     $(this).css("pointer-events","none");
   });
+
+  // $('.button').hover(
+  //   function(){
+  //     $(this).css("animation-play-state","paused,paused,running");
+  //   },function(){
+  //     $(this).css("animation-play-state","running,running,running");
+  //   }
+  // );
 
   // Show the statement page
   $('#statement').click(function(){
     $('#title,#about,#livestream-scroll').addClass('hide');
     $('.info').removeClass('hide').addClass('hide');
-    $('.statements,#close').css('display','block');
+    $('.statements,#close').removeClass('hide').css('display','block');
     console.log('statements');
   });
 

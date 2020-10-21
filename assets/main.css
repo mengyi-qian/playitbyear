@@ -85,6 +85,9 @@ a:hover {
   display: none;
   cursor: pointer;
 }
+#close:hover {
+  text-shadow: 0 0 2px #008ce7, 0 0 4px #008ce7, 0 0 6px #008ce7, 0 0 8px #008ce7;
+}
 
 .disable {pointer-events: none;}
 

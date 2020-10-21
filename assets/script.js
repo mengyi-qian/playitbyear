@@ -91,9 +91,10 @@ $(document).ready(function(){
 
   // Click the button and stop the animation
   $('.button').click(function(){
-    $('.button').css('animation-play-state','auto,auto,auto');
+    $('.button').css('animation-play-state','running,running,running');
+    $('.button').removeClass('disable');
     $(this).css("animation-play-state","paused,paused,running");
-    $(this).css("pointer-events","none");
+    $(this).addClass('disable');
   });
 
   // $('.button').hover(
@@ -107,7 +108,7 @@ $(document).ready(function(){
   // Show the statement page
   $('#statement').click(function(){
     $('#title,#about,#livestream-scroll').addClass('hide');
-    $('.info').removeClass('hide').addClass('hide');
+    $('.info,.echo').addClass('hide');
     $('.statements,#close').removeClass('hide').css('display','block');
     console.log('statements');
   });
@@ -115,15 +116,25 @@ $(document).ready(function(){
   // Show the info page
   $('#info').click(function(){
     $('#title,#about,#livestream-scroll').addClass('hide');
-    $('.statements').addClass('hide');
-    $('.info,#close').removeClass('hide').css('display','block');
+    $('.statements,.echo').addClass('hide');
+    $('.info').removeClass('hide').css('display','flex');
+    $('#close').removeClass('hide').css('display','block');
     console.log('info');
+  });
+
+  // Show the echo page
+  $('#echo').click(function(){
+    $('#title,#about,#livestream-scroll').addClass('hide');
+    $('.statements,.info').addClass('hide');
+    $('.echo').removeClass('hide').css('display','flex');
+    $('#close').removeClass('hide').css('display','block');
+    console.log('echo');
   });
 
   // Back to the homepage
   $('#close').click(function(){
     $('#title,#livestream-scroll').removeClass('hide').css('display','block');
-    $('.statements,.info,#close').addClass('hide');
+    $('.statements,.info,.echo,#close').addClass('hide');
     $('.button').css('animation-play-state','running,running,running');
     $('#title').addClass('fadein');
     $('.button').css("pointer-events","auto");

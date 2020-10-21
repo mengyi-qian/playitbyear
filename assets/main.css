@@ -264,6 +264,9 @@ a:hover {
 /* ------ MEDIA QUERY ------ */
 @media screen and (max-width: 600px) {
   #title {font-size: 36pt;}
+  /* #close {font-size: 24pt;} */
+  /* #about,.button,#info-left {font-size: 15pt;} */
+  .statement {font-size: 12pt;}
 
   /* livestream */
   #livestream-container {
@@ -279,10 +282,7 @@ a:hover {
   #statement-right {right: 5vw;}
   #statement-left .caption {padding-top: 20px;}
   #statement-right .caption {padding-top: 60px;}
-  .statements {
-    width: 70vw;
-    font-size: 12pt;
-  }
+  .statements {width: 70vw;}
 
   /* info */
   .info {
@@ -294,6 +294,7 @@ a:hover {
   #info-left, #info-right {
     margin: 0 20px;
   }
+  #info-right {padding-bottom: 20px;}
 
   /* echo */
   .echo {

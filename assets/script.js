@@ -15,13 +15,13 @@ $(document).ready(function(){
   }, 2000);
 
   for ( let i = 0; i < buttons.length; i++ ) {
-    // make the animation a random duration, from 45s to 50s, from 7s to 8s, from 3s to 4s,
-    buttons[i].style["animation-duration"] = ( 45 + Math.random() * 5 ) + 's, ' + '8s,' +
+    // make the animation a random duration, from 58s to 62s, 10s, from 3s to 4s,
+    buttons[i].style["animation-duration"] = ( 58 + Math.random() * 4 ) + 's, ' + '10s,' +
                                              ( 3 + Math.random() ) + 's';
 
-    // start the animations at a random offset, from 0s to -25s, from 0s to -8s, from 0s to -4s,
-    buttons[i].style["animation-delay"] = ( -1 * Math.random() * 25 ) + 's, ' +
-                                          ( -1 * Math.random() * 8 ) + 's,' +
+    // start the animations at a random offset, from 0s to -30s, from 0s to 10s, from 0s to -4s,
+    buttons[i].style["animation-delay"] = ( -1 * Math.random() * 30 ) + 's, ' +
+                                          ( -1 * Math.random() * 10 ) + 's,' +
                                           ( -1 * Math.random() * 4 ) + 's';
   }
 
@@ -140,7 +140,5 @@ $(document).ready(function(){
     $('.button').css("pointer-events","auto");
     console.log('homepage');
   });
-
-
 
 });
